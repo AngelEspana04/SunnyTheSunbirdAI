@@ -122,30 +122,30 @@ def show_home_screen():
 
     <!-- Row 1 -->
     <div class="row">
-        <a class="clickable-box1" onclick="window.open('{link_url}', '_blank')">
+        <a href="{link_url}" class="clickable-box1" target="_blank">
             <img src="data:image/png;base64,{b64_string}" alt="Sunbirds Logo">
             <p>FPU ATHLETICS</p>
             <p>Website Here!</p>
         </a>
         <a class="clickable-circle" onclick="window.open('{link_url2}', '_blank')">
         <div>
-            <p>Caffeteria</p>
+            <p>Charlottes</p>
             <p>Opening</p>
             <p>Hours</p>
         </div>
-    </a>
+        </a>
     </div>
 
     <!-- Row 2 -->
     <div class="row">
         <a class="clickable-circle" onclick="window.open('{link_url2}', '_blank')">
         <div>
-            <p>Library</p>
+            <p>Hiebert Library</p>
             <p>Opening</p>
             <p>Hours</p>
         </div>
-    </a>
-        <a class="clickable-box2" onclick="window.open('{link_url2}', '_blank')">
+        </a>
+        <a href="{link_url2}" class="clickable-box2" target="_blank">
             <img src="data:image/png;base64,{b64_string1}" alt="Sunbirds Logo">
             <p>APPLY HERE!</p>
         </a>
@@ -153,7 +153,7 @@ def show_home_screen():
 
     <!-- Row 3 -->
     <div class="row">
-        <a class="clickable-box1" onclick="window.open('{link_url3}', '_blank')">
+        <a href="{link_url3}" class="clickable-box3" target="_blank">
             <img src="data:image/png;base64,{b64_string2}" alt="Sunbirds Logo">
             <p>Check out our</p>
             <p>Undergraduate</p>
@@ -164,10 +164,8 @@ def show_home_screen():
             <p>Main Campus</p>
             <p>Map</p>
         </div>
-    </a>
+        </a>
     </div>
     """,
     unsafe_allow_html=True
 )
-    
-   
