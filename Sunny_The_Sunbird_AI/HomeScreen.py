@@ -1,22 +1,15 @@
 import streamlit as st
 import base64
+from response_logic import get_bot_response
 
 def show_home_screen(): 
-
-    # Create two columns
-    col1, col2 = st.columns([2, 5])  
-
-    with col1:
-        st.image("FPU_images/FPU logo.webp", width=150) 
-
-    with col2:
-        st.title("SUNNY THE SUNBIRD AI")
-        st.write("Learn about Fresno Pacific University!")
 
     # Define image path
     logo_path = "FPU_images/sunbirds.png"
     logo_path1 = "FPU_images/FPU.png"
     logo_path2 = "FPU_images/FresnoPacific.png"
+    logo_path3 = "FPU_images/FPU logo.webp"
+    logo_path4 = "FPU_images/FPUni.png"
 
     # Encode image to base64
     with open(logo_path, "rb") as img_file:
@@ -25,35 +18,94 @@ def show_home_screen():
         b64_string1 = base64.b64encode(img_file.read()).decode()
     with open(logo_path2, "rb") as img_file:
         b64_string2 = base64.b64encode(img_file.read()).decode()
+    with open(logo_path3, "rb") as img_file:
+        b64_string3 = base64.b64encode(img_file.read()).decode()
+    with open(logo_path4, "rb") as img_file:
+        b64_string4 = base64.b64encode(img_file.read()).decode()
 
     # URLs
     link_url = "https://www.fpusunbirds.com"
     link_url2 = "https://www.fresno.edu/admission"
     link_url3 = "https://www.fresno.edu/undergraduate/programs"
+    link_url4 ="https://www.fresno.edu/sites/default/files/documents/campus-safety/campus-map-fresno-main-campus-2025-01-22-no.pdf"
 
     # Embed in HTML
     st.markdown(
     f"""
-    
     <style>
+    .fixed-header {{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #0b1c5e;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        padding: 60px 30px 5px 5px;
+        gap: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }}
+    .fixed-header img {{
+        height: 100px;
+        margin-right: 20px;
+    }}
+    .fixed-header .title-block h1, 
+    .fixed-header .title-block h2 {{
+        color: white;
+        font-size: 25px;
+        margin: 0;
+        padding: 0;
+        line-height: 1.2;
+    }}
+    .fixed-header .title-block {{
+        font-size: 25px;
+        margin: 0;
+        padding: 0;
+        line-height: 0.5;
+    }}
+    .scroll-gradient {{
+        position: fixed;
+        top: 150px;  
+        left: 0;
+        width: 100%;
+        height: 120px;
+        background: linear-gradient(to bottom, #0b1c5e, rgba(11, 28, 94, 0));
+        z-index: 700;
+        pointer-events: none;
+    }}
+    .content-spacer {{
+        margin-top: 2px;
+    }}
     html, body, .stApp {{
-        background-color: #2a5873 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow-x: hidden;
-        base="dark"
-        primaryColor="#2a5873"
-        backgroundColor="#2a5873"
+        background-color: #0c2278 !important;
+        overflow: hidden !important;
+        height: 100vh !important;
+    }}
+    .block-container {{
+        overflow: hidden !important;
+        height: 100vh !important;
+        padding-top: 200px !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
     }}
     header, footer {{
-        background-color: #2a5873 !important;
+        background-color: #0b1c5e !important;
+    }}
+    footer {{
+        visibility: hidden;
+        height: 0px;
+        padding: 0 !important;
+        margin: 0 !important;
     }}
     .row {{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px 20px;
-        gap: 10px;
+        padding: 20px 20px;
+        gap: 30px;
     }}
     .clickable-box1, .clickable-box2, .clickable-box3 {{
         background-color: #aebbc2;
@@ -80,92 +132,55 @@ def show_home_screen():
         color: #000000;
         margin: 0.5px 0;
     }}
-    .clickable-circle {{
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        background-color: #d67a45;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        font-size: 16px;
-        font-weight: bold;
-        color: #000;
-        cursor: pointer;
-        circle-shadow: 0 4px 8px #000000;
-        padding: 20px;
-        text-decoration: none;
-        transition: transform 0.2s ease;
-    }}
-    .clickable-circle:hover {{
-        transform: scale(1.05);
-    }}
-    .clickable-circle p {{
-        font-size: 15px;
-        font-weight: bold;
-        color: #000000;
-        margin: 0.5px 0;
-    }}
-    .stApp::before {{
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 200px;
-        pointer-events: none;
-        background: linear-gradient(to bottom, #2a5873, rgba(42, 88, 115, 0));
-        z-index: 1000;
-    }}
     </style>
+
+    <div class="fixed-header">
+        <img src="data:image/png;base64,{b64_string3}" alt="Sunbirds Logo"> 
+        <div class="title-block">
+            <h1>SUNNY THE SUNBIRD AI</h1>
+            <h2>Learn about Fresno Pacific University!</h2>
+        </div>
+    </div>
+
+    <div class="scroll-gradient"></div>
+    <div class="content-spacer"></div>
 
     <!-- Row 1 -->
     <div class="row">
-        <a href="{link_url}" class="clickable-box1" target="_blank">
-            <img src="data:image/png;base64,{b64_string}" alt="Sunbirds Logo">
-            <p>FPU ATHLETICS</p>
-            <p>Website Here!</p>
-        </a>
-        <a class="clickable-circle" onclick="window.open('{link_url2}', '_blank')">
         <div>
-            <p>Charlottes</p>
-            <p>Opening</p>
-            <p>Hours</p>
+            <a href="{link_url}" class="clickable-box1" target="_blank">
+                <img src="data:image/png;base64,{b64_string}" alt="Sunbirds Logo">
+                <p>FPU ATHLETICS</p>
+                <p>Website Here!</p>
+            </a>
         </div>
-        </a>
+        <div>
+            <a href="{link_url2}" class="clickable-box2" target="_blank">
+                <img src="data:image/png;base64,{b64_string1}" alt="Sunbirds Logo">
+                <p>APPLY HERE!</p>
+            </a>
+        </div>
     </div>
 
     <!-- Row 2 -->
     <div class="row">
-        <a class="clickable-circle" onclick="window.open('{link_url2}', '_blank')">
         <div>
-            <p>Hiebert Library</p>
-            <p>Opening</p>
-            <p>Hours</p>
+            <a href="{link_url3}" class="clickable-box3" target="_blank">
+                <img src="data:image/png;base64,{b64_string2}" alt="Sunbirds Logo">
+                <p>Undergraduate</p>
+                <p>Programs Here!</p>
+            </a>
         </div>
-        </a>
-        <a href="{link_url2}" class="clickable-box2" target="_blank">
-            <img src="data:image/png;base64,{b64_string1}" alt="Sunbirds Logo">
-            <p>APPLY HERE!</p>
-        </a>
-    </div>
-
-    <!-- Row 3 -->
-    <div class="row">
-        <a href="{link_url3}" class="clickable-box3" target="_blank">
-            <img src="data:image/png;base64,{b64_string2}" alt="Sunbirds Logo">
-            <p>Check out our</p>
-            <p>Undergraduate</p>
-            <p>Programs!</p>
-        </a>
-        <a class="clickable-circle" onclick="window.open('{link_url2}', '_blank')">
         <div>
-            <p>Main Campus</p>
-            <p>Map</p>
+            <a href="{link_url4}" class="clickable-box3" target="_blank">
+                <img src="data:image/png;base64,{b64_string4}" alt="Sunbirds Logo">
+                <p>FPU Campus</p>
+                <p>Map Here!</p>
+            </a>
         </div>
-        </a>
     </div>
-    """,
+    """, 
     unsafe_allow_html=True
 )
+
+    
