@@ -18,3 +18,5 @@ def show_chat_tab():
             st.session_state.messages.append({"role": "assistant", "content": response})
             st.session_state.screen = "chat"  # 🚨 trigger screen switch!
             st.rerun()
+        
+        
