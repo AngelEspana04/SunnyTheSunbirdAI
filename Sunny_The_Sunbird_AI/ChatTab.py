@@ -4,7 +4,7 @@ from response_logic import get_bot_response
 def show_chat_tab():
     # Remove redundant input at the top
     with st.container():
-        st.markdown("---")
+        st.markdown("<div style='margin-top: 5px;'></div>", unsafe_allow_html=True)
 
         if "messages" not in st.session_state:
             st.session_state.messages = []
@@ -18,4 +18,3 @@ def show_chat_tab():
             st.session_state.messages.append({"role": "assistant", "content": response})
             st.session_state.screen = "chat"  # 🚨 trigger screen switch!
             st.rerun()
-
