@@ -4,6 +4,13 @@ from response_logic import get_bot_response
 
 def show_home_screen(): 
 
+     # Use a Streamlit button for logic
+    with st.container():
+        back_button_placeholder = st.empty()
+    if back_button_placeholder.button("Chat", key="back_chat_button"):
+        st.session_state.screen = "chat"
+        st.rerun()
+    
     # Define image path
     logo_path = "FPU_images/sunbirds.png"
     logo_path1 = "FPU_images/FPU.png"
@@ -105,11 +112,11 @@ def show_home_screen():
         justify-content: space-between;
         align-items: center;
         padding: 20px 20px;
-        gap: 30px;
+        gap: 10px;
     }}
     .clickable-box1, .clickable-box2, .clickable-box3 {{
         background-color: #aebbc2;
-        padding: 20px;
+        padding: 10px;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -131,6 +138,20 @@ def show_home_screen():
         font-weight: bold;
         color: #000000;
         margin: 0.5px 0;
+    }}
+    .back-button {{
+        background-color: white;
+        color: #c48443;
+        border: 2px solid #c48443;
+        padding: 5px 5px;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }}
+    .back-button:hover {{
+        background-color: #c48443;
+        color: white;
     }}
     </style>
 
@@ -182,5 +203,3 @@ def show_home_screen():
     """, 
     unsafe_allow_html=True
 )
-
-    

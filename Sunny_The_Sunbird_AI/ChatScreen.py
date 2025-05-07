@@ -18,7 +18,7 @@ def show_chat_screen():
     with open(logo_path, "rb") as img_file:
         b64_string = base64.b64encode(img_file.read()).decode()
 
-    # Wrapper around the fixed-header that acts as a button
+    # Design
     st.markdown(f"""
         <style>
         html, body, .stApp {{
