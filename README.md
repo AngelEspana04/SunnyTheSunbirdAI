@@ -60,9 +60,9 @@
 ### 3.1 User Interfaces
 
 > * **Splash Page**
-![splashpage](image.png)
+![splashpage](splashpage.png)
 > * **AI Response**
-![airesponse](image2.png)
+![airesponse](airesponse.png)
 
 ### 3.2 Hardware Interfaces
 >The project is hosted on Google Cloud, and utilizes the Gemini API
