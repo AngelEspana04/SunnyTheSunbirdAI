@@ -74,6 +74,7 @@
 >An internet connection, web browser, and access to Google Cloud, are needed to utilize Sunny The Sunbird AI.
 
 ## 4. System Features
+
 ### 4.1 Splash Page
 #### 4.1.1 Description
 >This is the first thing the user sees upon entering the site. As well as the chatbot being readily available, it also includes links to the FPU athletics website, FPU applications, undergraduate programs, and a map of the campus.
@@ -86,6 +87,7 @@
 
 
 ### 4.2 AI Response
+
 #### 4.2.1 Description
 >This shows up when the user types something for the AI to respond to, making the links from before disappear.
 
