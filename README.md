@@ -76,21 +76,21 @@
 ## 4. System Features
 ### 4.1 Splash Page
 #### 4.1.1 Description
->This feature allows displays the purpose of the website, some context as to how the website came about, and gives the user instruction on how to use the website as a PWA (progressive web app) if they are on a mobile device. It also prominently features a "Get started button" that will take the user to the schedule generator when clicked.
+>This is the first thing the user sees upon entering the site. As well as the chatbot being readily available, it also includes links to the FPU athletics website, FPU applications, undergraduate programs, and a map of the campus.
 
 #### 4.1.2 Stimulus/Response Sequences
->In order to view the content of the webpage the user would need to scroll if they are using a screen smaller than the canvas size of the webpage. In order to use the site as a PWA on a mobile device they would need to save the webpage to their homescreen then launch the site from there. In order to use the "Get Started" button the user would need to click on the button (see section 3.1 - Splash Page).
+>If the user clicks one of the links mentioned before, then it will take them to their respective sites. If the user types something on the textbox and presses enter, then the AI will respond to the student in whichever way it can.
 
 #### 4.1.3 Functional Requirements
 >See sections 2.5, 2.7, and 3.4.
 
 
-### 4.2 Term Selection
+### 4.2 AI Response
 #### 4.2.1 Description
->This feature allows the user to select which term they would like to generate schedules for.
+>This shows up when the user types something for the AI to respond to, making the links from before disappear.
 
 #### 4.2.2 Stimulus/Response Sequences
->The user will be presented with three options: the current term, upcoming break term, and the next full term (currently that is Fall 2022, Winter 2023, and Spring 2023). In order to select one of these the user need only click on the corresponding box. (See section 3.1 - Term Selection)
+>The user is prompted to type questions for the AI to respond to, and shows previous questions/answers if the user scrolls up.
 
 #### 4.2.3 Functional Requirements
 > See sections 2.5, 2.7, and 3.4.
@@ -100,7 +100,7 @@
 
 ### 5.1 Software Quality Attributes
 ### 5.1.1 Ease of Use
->It is imperative that the website be intuitive and simple to use, as the primary objective is to minimize time spent creating the schedules.
+>It is imperative that the website be intuitive and simple to use, as the primary objective is to streamline the process of giving the user whatever answer they need.
 
 ### 5.1.2 Accuracy and Availability
->Ensuring the website delivers the most up to date results as well as only accurate results is of the upmost priority. The website should never display inaccurate schedules and should be available for reuse each semester.
+>Ensuring the website delivers the most up to date results as well as only accurate results is of the upmost priority. The website should never display inaccurate information and should be available for reuse each semester.
